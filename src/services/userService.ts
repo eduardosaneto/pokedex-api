@@ -37,3 +37,11 @@ export async function signIn (email: string, password: string): Promise<string> 
     return null;
   }
 }
+
+export async function sessionValidation(token: string) {
+  const repository = getRepository(Session);
+  const session = await repository.findOne({ where: { token }, relations: ["user"]});
+
+  if(!session) return null;
+  else return session.user;
+}

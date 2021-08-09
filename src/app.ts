@@ -7,6 +7,8 @@ import "reflect-metadata";
 import connectDatabase from "./database";
 
 import * as userController from "./controllers/userController";
+import * as pokemonControllers from "./controllers/pokemonControlles";
+import { authMiddleware } from "./middlewares/authMiddleware";
 
 const app = express();
 app.use(cors());
@@ -14,6 +16,7 @@ app.use(express.json());
 
 app.post("/sign-up", userController.signUp);
 app.post("/sign-in", userController.signIn);
+app.get("/pokemons", authMiddleware, pokemonControllers.geAllPokemon);
 
 export async function init () {
   await connectDatabase();
