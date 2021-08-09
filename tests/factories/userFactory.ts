@@ -1,7 +1,6 @@
 import { getRepository } from "typeorm";
 import bcrypt from "bcrypt";
 import User from "../../src/entities/User";
-import Session from "../../src/entities/Sessions";
 
 export async function createUser() {
     const user = {
