@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import UsersPokemons from "./UsersPokemons";
 
 @Entity("pokemons")
-export default class Sessions{
+export default class Pokemons{
     @PrimaryGeneratedColumn()
     id: number;
 
