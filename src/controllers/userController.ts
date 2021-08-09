@@ -5,7 +5,6 @@ import registerSchema from "../schemas/registerSchema";
 import * as userService from "../services/userService";
 
 export async function signUp (req: Request, res: Response) {
-  try {
     const { error } = registerSchema.validate(req.body);
     if (error) return res.sendStatus(400);
   
@@ -15,14 +14,9 @@ export async function signUp (req: Request, res: Response) {
     const { email, password } = req.body as {email: string, password: string};
     await userService.signUp(email, password);
     res.sendStatus(201);
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
 }
 
 export async function signIn (req: Request, res: Response) {
-  try {
     const validBody = loginSchema.validate(req.body);
 
     if (validBody.error) res.sendStatus(400);
@@ -33,8 +27,4 @@ export async function signIn (req: Request, res: Response) {
     if(token === null) return res.sendStatus(401);
     
     res.status(200).send({ token });
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
 }
