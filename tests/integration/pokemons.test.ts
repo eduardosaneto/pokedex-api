@@ -89,10 +89,7 @@ describe("POST /my-pokemons/:pokemonId/remove", () => {
     const user = await userFactory.createUser("email2@email.com", "12345678");
     const session = await userFactory.createSession(user.id);
     const pokemon = await pokemonFactory.createPokemon();
-    await test.post(`/my-pokemons/${pokemon.id}/add`).set("Authorization", `Bearer ${session.token}`);
-    await test.post(`/my-pokemons/${pokemon.id}/remove`).set("Authorization", `Bearer ${session.token}`);
     const response = await test.post(`/my-pokemons/${pokemon.id}/remove`).set("Authorization", `Bearer ${session.token}`);
-    // const addTheSamePokemon = await test.post(`/my-pokemons/${pokemon.id}/remove`).set("Authorization", `Bearer ${session.token}`);
 
     expect(response.status).toBe(404);
   });

@@ -37,17 +37,3 @@ export async function createSession(userId: number) {
 
     return session;
 }
-
-// export async function createAnotherUser(password?: string) {
-//     const user = {
-//         email: "email@email.com",
-//         password
-//     };
-
-//     const newUser = await getRepository(User).save({       
-//         email: user.email,
-//         password: bcrypt.hashSync(user.password, 10)
-//     });
-
-//     return newUser;
-// }
