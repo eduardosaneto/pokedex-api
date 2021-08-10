@@ -18,7 +18,7 @@ app.use(errorHandler);
 
 app.post("/sign-up", userController.signUp);
 app.post("/sign-in", userController.signIn);
-app.get("/pokemons", authMiddleware, pokemonControllers.geAllPokemon);
+app.get("/pokemons", authMiddleware, pokemonControllers.loadAllPokemons);
 app.post("/my-pokemons/:id/add", authMiddleware, pokemonControllers.addToMyPokemons);
 app.post("/my-pokemons/:id/remove", authMiddleware, pokemonControllers.deleteFromMyPokemons);
 
