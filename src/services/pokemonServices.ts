@@ -54,7 +54,7 @@ export async function populatePokemon() {
 
 export async function getPokemons(){
   const pokemons = [];
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 250; i++) {
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
     const pokemon = {
       id: response.data.id, 
